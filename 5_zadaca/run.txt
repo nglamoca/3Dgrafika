@@ -1,1 +1,0 @@
-g++ main.cpp -o out -lglfw3 -lopengl32 glad/glad.c LineRenderer.cpp CircleRenderer.cpp
