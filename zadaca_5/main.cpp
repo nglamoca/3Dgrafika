@@ -53,13 +53,13 @@ void mouse(GLFWwindow* window, int button, int action, int mods) {
       double x;
       double y;
       glfwGetCursorPos(window, &x, &y);
-      if(sqrt((x - b.P0.x)*(x - b.P0.x) + (y - b.P0.y)*(y - b.P0.y)) < 4){
+      if(sqrt((x - b.P0.x)*(x - b.P0.x) + (y - b.P0.y)*(y - b.P0.y)) < 5){
             press = &b.P0;}
-      else if(sqrt((x - b.P1.x)*(x - b.P1.x) + (y - b.P1.y)*(y - b.P1.y)) < 4){
+      else if(sqrt((x - b.P1.x)*(x - b.P1.x) + (y - b.P1.y)*(y - b.P1.y)) < 5){
             press = &b.P1;}
-      else if(sqrt((x - b.P2.x)*(x - b.P2.x) + (y - b.P2.y)*(y - b.P2.y)) < 4){
+      else if(sqrt((x - b.P2.x)*(x - b.P2.x) + (y - b.P2.y)*(y - b.P2.y)) < 5){
             press = &b.P2;}
-      else if(sqrt((x - b.P3.x)*(x - b.P3.x) + (y - b.P3.y)*(y - b.P3.y)) < 4){
+      else if(sqrt((x - b.P3.x)*(x - b.P3.x) + (y - b.P3.y)*(y - b.P3.y)) < 5){
             press = &b.P3;}
     }
     else if(GLFW_RELEASE == action) {
@@ -74,7 +74,7 @@ void cursor(GLFWwindow* window, double x, double y) {
     press->x = x;
     press->y = y;
     b.ClearPoints();
-    b.curve_create(0.02);
+    b.curve_create(0.001);
   }
 }
 
@@ -105,7 +105,7 @@ int main () {
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-   b.curve_create(0.02);
+   b.curve_create(0.001);
 
   glfwSetMouseButtonCallback(window, mouse);
   glfwSetCursorPosCallback(window, cursor);
@@ -113,10 +113,10 @@ int main () {
   while (!glfwWindowShouldClose(window)) {
 	   glClear(GL_COLOR_BUFFER_BIT);
 
-    RenderCircle(b.P0, 4);
-    RenderCircle(b.P1, 4);
-    RenderCircle(b.P2, 4);
-    RenderCircle(b.P3, 4);
+    RenderCircle(b.P0, 5);
+    RenderCircle(b.P1, 5);
+    RenderCircle(b.P2, 5);
+    RenderCircle(b.P3, 5);
 
     RenderLine(b.getCurve());
 
