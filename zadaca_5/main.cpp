@@ -42,7 +42,7 @@ struct BezierCurve {
   }
 };
 
-BezierCurve b(vec2(20,10), vec2(100, 200), vec2(500, 400), vec2(600, 600));
+BezierCurve b(vec2(20,10), vec2(100, 200), vec2(500, 400), vec2(300, 600));
 vec2* press = nullptr;
 
 //window-that recieved the event,button -pressed/released, action -GLFWPRESS/RELEASE,
